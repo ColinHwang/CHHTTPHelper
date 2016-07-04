@@ -157,9 +157,7 @@ typedef NS_ENUM(NSInteger, CHServerPortType) {
         return portString;
     }
     
-    portString = [@":" stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)portType]]; // :1020
-    
-    return portString;
+    return [@":" stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)portType]]; // :1020
 }
 
 + (NSString *)URLWithModule:(NSString *)module APIPath:(NSString *)APIPath
