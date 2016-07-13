@@ -152,10 +152,7 @@ typedef NS_ENUM(NSInteger, CHServerPortType) {
 {
     NSString *portString = @"";
     
-    if (portType == CHServerPortTypeNone)
-    {
-        return portString;
-    }
+    if (portType == CHServerPortTypeNone) return portString;
     
     return [@":" stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)portType]]; // :1020
 }
