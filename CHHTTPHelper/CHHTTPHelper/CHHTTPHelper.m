@@ -10,9 +10,10 @@
 #import "APIConstants.h"
 #import "AFNetworking.h"
 
+#define Test 0
+
 static NSString * const DEFAULT_EX_CODE = @"请求失败";
 static NSString * const DEFAULT_EX_MSG = @"加载失败";
-
 
 typedef NS_ENUM(NSInteger, CHNetworkProtocolType) {
     CHNetworkProtocolTypeNone = 0,
@@ -168,6 +169,21 @@ typedef NS_ENUM(NSInteger, CHServerPortType) {
  */
 + (void)configureRequestSuccess:(CHHTTPRequestSuccess)success requestFailure:(CHHTTPRequestFailure)failure withTask:(NSURLSessionDataTask *)task responseObject:(id)responseObject
 {
+#if Test
+    /*  若项目返回数据如下：则可开启测试。也可以根据自身数据类型，自行配置
+         请求成功：
+         {
+             "result":1,
+             ...
+         }
+         
+         请求失败：
+         {
+             "result":0,
+             "exCode":"100",
+             "exMsg":"失败"
+         }
+     **/
     if ([responseObject isKindOfClass:[NSDictionary class]])
     {
         if ([responseObject[@"result"] intValue] == 1)
@@ -179,6 +195,9 @@ typedef NS_ENUM(NSInteger, CHServerPortType) {
         [CHHTTPHelper configureRequestFailure:failure withTask:task responseObject:responseObject];
         return;
     }
+#else
+    [CHHTTPHelper configureRequestSuccess:success withTask:task responseObject:responseObject];
+#endif
 }
 
 /**

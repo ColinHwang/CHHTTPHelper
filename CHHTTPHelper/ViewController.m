@@ -30,11 +30,12 @@
 - (void)testRequest
 {
     // A test. You should change URL and parameters.
-    NSString *URLString = [CHHTTPHelper URLWithModule:MODULE_USER APIPath:API_REGISTER_PATH];
+    NSString *URLString = @"http://apis.juhe.cn/ip/ip2addr";
+    NSDictionary *parameters = @{@"ip":@"www.juhe.cn",@"key":@"appkey"};
+//    NSString *URLString = [CHHTTPHelper URLWithModule:MODULE_USER APIPath:API_REGISTER_PATH];
+//    NSDictionary *parameters = @{@"test":@"1"};
     
     NSLog(@"URL:%@", URLString);
-    
-    NSDictionary *parameters = @{@"test":@"1"};
     
     [[CHHTTPHelper defaultHTTPHelper] GET:URLString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         
