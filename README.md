@@ -1,4 +1,4 @@
-# CHHTTPHelper
+# CHHTTPHelper [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/colinhwang/CHHTTPHelper/master/LICENSE)&nbsp;
 A network client based on AFNetwoking 3.0. 
 
 See more: http://www.colinhwang.com/2016/07/04/afnetworking-wrapped
