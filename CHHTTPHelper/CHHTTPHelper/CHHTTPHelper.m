@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger, CHServerPortType) {
         self.manager.requestSerializer.timeoutInterval = 10; // 请求时长
         self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects: @"text/plain", @"application/json", @"text/json", @"text/javascript", @"text/html", @"image/png", nil];
         
-        self.manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+//        self.manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
     }
     return self;
 }
