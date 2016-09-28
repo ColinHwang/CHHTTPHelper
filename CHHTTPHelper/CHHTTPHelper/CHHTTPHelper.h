@@ -14,6 +14,10 @@ typedef void(^CHHTTPRequestAllCompletion)();
 
 @interface CHHTTPHelper : NSObject
 
+- (instancetype)init __attribute__((unavailable("Disable. Use +defaultHTTPHelper instead.")));
+
++ (instancetype)new __attribute__((unavailable("Disable. Use +defaultHTTPHelper instead.")));
+
 + (CHHTTPHelper *)defaultHTTPHelper;
 
 #pragma mark - API Path
