@@ -130,18 +130,15 @@ typedef NS_ENUM(NSInteger, CHServerPortType) {
     {
         return protocolString;
     }
-    
-    if (protocolType == CHNetworkProtocolTypeHTTP)
+    else if (protocolType == CHNetworkProtocolTypeHTTP)
     {
         protocolString = @"http";
     }
-    
-    if (protocolType == CHNetworkProtocolTypeHTTPS)
+    else if (protocolType == CHNetworkProtocolTypeHTTPS)
     {
         protocolString = @"https";
     }
-    
-    if (protocolType == CHNetworkProtocolTypeFTP)
+    else if (protocolType == CHNetworkProtocolTypeFTP)
     {
         protocolString = @"ftp";
     }
@@ -170,7 +167,7 @@ typedef NS_ENUM(NSInteger, CHServerPortType) {
 + (void)configureRequestSuccess:(CHHTTPRequestSuccess)success requestFailure:(CHHTTPRequestFailure)failure withTask:(NSURLSessionDataTask *)task responseObject:(id)responseObject
 {
 #if Test
-    /*  若项目返回数据如下：则可开启测试。也可以根据自身数据类型，自行配置
+    /*  若项目返回数据如下，则可开启测试。也可以根据自身数据类型，自行配置
          请求成功：
          {
              "result":1,
